@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corredor 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="term">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="file">corredor3d.js</span>
+    <span class="school">CETI PROF. JOSÉ AMÁVEL</span>
+  </div>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Corredor do servidor em 3D"></canvas>
+
+    <button type="button" class="btn-act" id="btnFire" aria-label="Atirar" hidden>Atirar</button>
+
+    <div class="hud" id="hud" hidden>
+      <div class="hud-left">
+        <span class="chipbox"><b id="hudScore">0</b><small>pontos</small></span>
+        <span class="chipbox wave"><b id="hudLevel">1/3</b><small>nível</small></span>
+        <span class="chipbox power"><b id="hudLeft">0</b><small>restam</small></span>
+        <span class="chipbox lives"><b id="hudLives">❤❤❤❤❤</b><small>vida</small></span>
+      </div>
+      <div class="hud-right">
+        <button type="button" class="icon" id="btnSound" aria-label="Som ligado">🔊</button>
+        <button type="button" class="icon" id="btnPause" aria-label="Pausar">⏸</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="startScreen">
+      <div class="box">
+        <p class="eyebrow">Primeira pessoa</p>
+        <h1>Corredor <span>3D</span></h1>
+        <p class="lead">Você entrou no labirinto do servidor da escola. Encontre e elimine todos os invasores em 3 níveis!</p>
+        <ul class="legend">
+          <li><i class="sw virus"></i><span><b>Vírus</b> lento, mas resistente</span></li>
+          <li><i class="sw drone"></i><span><b>Drone</b> rápido</span></li>
+          <li><i class="sw hacker"></i><span><b>Hacker</b> atira de longe (nível 2+)</span></li>
+          <li><i class="sw friend"></i><span><b>Mapa</b> pontos vermelhos = invasores</span></li>
+        </ul>
+        <div class="controls">
+          <p><b>Celular:</b> lado esquerdo = andar e virar. Lado direito = arraste para girar a câmera. Segure o botão <b>Atirar</b> para atirar sem parar.</p>
+          <p><b>Computador:</b> W / S andam, A / D vão para o lado, setas ← → viram. Clique ou Espaço atira. Clique na tela para mirar com o mouse.</p>
+        </div>
+        <button type="button" class="play" id="btnPlay">▶ Jogar</button>
+        <p class="best" id="bestStart">Recorde: 0</p>
+      </div>
+    </div>
+
+    <div class="overlay" id="pauseScreen" hidden>
+      <div class="box small">
+        <h2>Pausado</h2>
+        <button type="button" class="play" id="btnResume">▶ Continuar</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overScreen" hidden>
+      <div class="box">
+        <p class="eyebrow" id="overTag">Fim de jogo</p>
+        <h2 id="overTitle">Você foi desconectado!</h2>
+        <p class="lead" id="overNote"></p>
+        <div class="stats">
+          <div><b id="overScore">0</b><small>pontos</small></div>
+          <div><b id="overLevel">1</b><small>nível</small></div>
+          <div><b id="overTime">0s</b><small>tempo</small></div>
+        </div>
+        <p class="best" id="overBest">Recorde: 0</p>
+        <button type="button" class="play" id="btnAgain">↻ Jogar de novo</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">Celular: esquerda anda, direita atira e gira · Computador: W A S D, setas e clique</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
